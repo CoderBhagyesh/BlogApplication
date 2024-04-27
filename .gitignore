@@ -361,3 +361,7 @@ MigrationBackup/
 
 # Fody - auto-generated XML schema
 FodyWeavers.xsd
+
+.vs
+BlogApplication/bin/Debug/net8.0
+BlogApplication/obj
