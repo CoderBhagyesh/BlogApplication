@@ -57,10 +57,8 @@ namespace BlogApplication.Repositories.Implementations
                 existingBlog.ShortDescription = post.ShortDescription;
                 existingBlog.Author = post.Author;
                 existingBlog.FeaturedImageUrl = post.FeaturedImageUrl;
-                existingBlog.UrlHandle = post.UrlHandle;
                 existingBlog.CreatedAt = post.CreatedAt;
                 existingBlog.UpdatedAt = post.UpdatedAt;
-                existingBlog.UserId = post.UserId;
 
                 await blogsDbContext.SaveChangesAsync();
                 return existingBlog;

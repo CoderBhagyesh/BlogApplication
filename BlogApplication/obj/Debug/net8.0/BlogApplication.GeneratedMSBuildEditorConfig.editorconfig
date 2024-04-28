@@ -18,6 +18,18 @@ build_property.GenerateRazorMetadataSourceChecksumAttributes =
 build_property.MSBuildProjectDirectory = C:\Users\ASUS\OneDrive\Desktop\EasyRewardz Project\BlogApplication\BlogApplication
 build_property._RazorSourceGeneratorDebug = 
 
+[C:/Users/ASUS/OneDrive/Desktop/EasyRewardz Project/BlogApplication/BlogApplication/Views/Account/AccessDenied.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxBY2Nlc3NEZW5pZWQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/ASUS/OneDrive/Desktop/EasyRewardz Project/BlogApplication/BlogApplication/Views/Account/Login.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxMb2dpbi5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/ASUS/OneDrive/Desktop/EasyRewardz Project/BlogApplication/BlogApplication/Views/Account/Register.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxSZWdpc3Rlci5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/ASUS/OneDrive/Desktop/EasyRewardz Project/BlogApplication/BlogApplication/Views/BlogPosts/Add.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQmxvZ1Bvc3RzXEFkZC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 

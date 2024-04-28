@@ -364,4 +364,4 @@ FodyWeavers.xsd
 
 .vs
 BlogApplication/bin/Debug/net8.0
-BlogApplication/obj
+BlogApplication/obj.vs
