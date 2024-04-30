@@ -3,7 +3,7 @@
 
 <div class="bg-secondary bg-opacity-10 py-2">
     <div class="container">
-        <h1>Add New Blog Post - Admin Functionality</h1>
+        <h1>Add New Blog Post - User Functionality</h1>
     </div>
 </div>
 
@@ -21,11 +21,6 @@
         </div>
 
         <div class="mb-3">
-            <label class="form-label">Short Description</label>
-            <input type="text" class="form-control" id="shortDescription" asp-for="ShortDescription" />
-        </div>
-
-        <div class="mb-3">
             <label class="form-label">Featured Image Upload</label>
             <input type="file" id="featuredImageUpload" class="form-control" />
 
@@ -37,7 +32,7 @@
             <input type="text" class="form-control" id="featuredImageUrl" asp-for="FeaturedImageUrl" />
         </div>
 
-        <div class="mb-3">
+ @*        <div class="mb-3">
             <label class="form-label">CreatedAt</label>
             <input type="date" class="form-control" id="createdAt" asp-for="CreatedAt" />
         </div>
@@ -45,14 +40,12 @@
         <div class="mb-3">
             <label class="form-label">UpdatedAt</label>
             <input type="date" class="form-control" id="updatedAt" asp-for="UpdatedAt" />
-        </div>
+        </div> *@
 
         <div class="mb-3">
             <label class="form-label">Author</label>
             <input type="text" class="form-control" id="author" asp-for="Author" />
         </div>
-
-        <input type="hidden" asp-for="UserId" />
 
         <div class="mb-3">
             <button type="submit" class="btn btn-dark">

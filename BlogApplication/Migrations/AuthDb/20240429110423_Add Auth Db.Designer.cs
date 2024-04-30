@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace BlogApplication.Migrations.AuthDb
 {
     [DbContext(typeof(AuthDbContext))]
-    [Migration("20240427201320_Initial Migration")]
-    partial class InitialMigration
+    [Migration("20240429110423_Add Auth Db")]
+    partial class AddAuthDb
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -58,6 +58,13 @@ namespace BlogApplication.Migrations.AuthDb
                             ConcurrencyStamp = "37cc67e1-41ca-461c-bf34-2b5e62dbae32",
                             Name = "Admin",
                             NormalizedName = "Admin"
+                        },
+                        new
+                        {
+                            Id = "3cfd9eee-08cb-4da3-9e6f-c3166b50d3b0",
+                            ConcurrencyStamp = "3cfd9eee-08cb-4da3-9e6f-c3166b50d3b0",
+                            Name = "SuperAdmin",
+                            NormalizedName = "SuperAdmin"
                         },
                         new
                         {
@@ -156,6 +163,24 @@ namespace BlogApplication.Migrations.AuthDb
                         .HasFilter("[NormalizedUserName] IS NOT NULL");
 
                     b.ToTable("AspNetUsers", (string)null);
+
+                    b.HasData(
+                        new
+                        {
+                            Id = "472ba632-6133-44a1-b158-6c10bd7d850d",
+                            AccessFailedCount = 0,
+                            ConcurrencyStamp = "2d935135-c23d-42bd-8d02-a05b4045786b",
+                            Email = "superadmin@bloggie.com",
+                            EmailConfirmed = false,
+                            LockoutEnabled = false,
+                            NormalizedEmail = "SUPERADMIN@BLOGGIE.COM",
+                            NormalizedUserName = "SUPERADMIN@BLOGGIE.COM",
+                            PasswordHash = "AQAAAAIAAYagAAAAEOm/IH6gOa3UPEmZh4YbZLZjhC3qebJN949id+LOka5nNYHo85IWfdPvjNp1JjHTSw==",
+                            PhoneNumberConfirmed = false,
+                            SecurityStamp = "96e1215d-e0df-48a3-a20f-c6607e7dcbe1",
+                            TwoFactorEnabled = false,
+                            UserName = "superadmin@bloggie.com"
+                        });
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserClaim<string>", b =>
@@ -218,6 +243,23 @@ namespace BlogApplication.Migrations.AuthDb
                     b.HasIndex("RoleId");
 
                     b.ToTable("AspNetUserRoles", (string)null);
+
+                    b.HasData(
+                        new
+                        {
+                            UserId = "472ba632-6133-44a1-b158-6c10bd7d850d",
+                            RoleId = "37cc67e1-41ca-461c-bf34-2b5e62dbae32"
+                        },
+                        new
+                        {
+                            UserId = "472ba632-6133-44a1-b158-6c10bd7d850d",
+                            RoleId = "3cfd9eee-08cb-4da3-9e6f-c3166b50d3b0"
+                        },
+                        new
+                        {
+                            UserId = "472ba632-6133-44a1-b158-6c10bd7d850d",
+                            RoleId = "a0cab2c3-6558-4a1c-be81-dfb39180da3d"
+                        });
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserToken<string>", b =>

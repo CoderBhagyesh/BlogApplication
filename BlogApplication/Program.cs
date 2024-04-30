@@ -22,7 +22,7 @@ namespace BlogApplication
             builder.Services.AddDbContext<AuthDbContext>(options =>
             options.UseSqlServer(builder.Configuration.GetConnectionString("BlogsAuthDbConnectionString")));
 
-            builder.Services.AddIdentity<User, IdentityRole>()
+            builder.Services.AddIdentity<IdentityUser, IdentityRole>()
                 .AddEntityFrameworkStores<AuthDbContext>();
 
             builder.Services.Configure<IdentityOptions>(options =>
@@ -37,6 +37,8 @@ namespace BlogApplication
             });
 
             builder.Services.AddScoped<IBlogPostRepository, BlogPostRepository>();
+            builder.Services.AddScoped<IImageRepository, ImageRepository>();
+            builder.Services.AddScoped<ICommentRepository, CommentRepository>();
 
             var app = builder.Build();
 

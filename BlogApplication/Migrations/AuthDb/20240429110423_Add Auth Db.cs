@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace BlogApplication.Migrations.AuthDb
 {
     /// <inheritdoc />
-    public partial class InitialMigration : Migration
+    public partial class AddAuthDb : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -164,7 +164,23 @@ namespace BlogApplication.Migrations.AuthDb
                 values: new object[,]
                 {
                     { "37cc67e1-41ca-461c-bf34-2b5e62dbae32", "37cc67e1-41ca-461c-bf34-2b5e62dbae32", "Admin", "Admin" },
+                    { "3cfd9eee-08cb-4da3-9e6f-c3166b50d3b0", "3cfd9eee-08cb-4da3-9e6f-c3166b50d3b0", "SuperAdmin", "SuperAdmin" },
                     { "a0cab2c3-6558-4a1c-be81-dfb39180da3d", "a0cab2c3-6558-4a1c-be81-dfb39180da3d", "User", "User" }
+                });
+
+            migrationBuilder.InsertData(
+                table: "AspNetUsers",
+                columns: new[] { "Id", "AccessFailedCount", "ConcurrencyStamp", "Email", "EmailConfirmed", "LockoutEnabled", "LockoutEnd", "NormalizedEmail", "NormalizedUserName", "PasswordHash", "PhoneNumber", "PhoneNumberConfirmed", "SecurityStamp", "TwoFactorEnabled", "UserName" },
+                values: new object[] { "472ba632-6133-44a1-b158-6c10bd7d850d", 0, "2d935135-c23d-42bd-8d02-a05b4045786b", "superadmin@bloggie.com", false, false, null, "SUPERADMIN@BLOGGIE.COM", "SUPERADMIN@BLOGGIE.COM", "AQAAAAIAAYagAAAAEOm/IH6gOa3UPEmZh4YbZLZjhC3qebJN949id+LOka5nNYHo85IWfdPvjNp1JjHTSw==", null, false, "96e1215d-e0df-48a3-a20f-c6607e7dcbe1", false, "superadmin@bloggie.com" });
+
+            migrationBuilder.InsertData(
+                table: "AspNetUserRoles",
+                columns: new[] { "RoleId", "UserId" },
+                values: new object[,]
+                {
+                    { "37cc67e1-41ca-461c-bf34-2b5e62dbae32", "472ba632-6133-44a1-b158-6c10bd7d850d" },
+                    { "3cfd9eee-08cb-4da3-9e6f-c3166b50d3b0", "472ba632-6133-44a1-b158-6c10bd7d850d" },
+                    { "a0cab2c3-6558-4a1c-be81-dfb39180da3d", "472ba632-6133-44a1-b158-6c10bd7d850d" }
                 });
 
             migrationBuilder.CreateIndex(

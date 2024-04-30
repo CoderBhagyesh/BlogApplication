@@ -7,10 +7,10 @@ namespace BlogApplication.Data
     {
         public BlogsDbContext(DbContextOptions<BlogsDbContext> options) : base(options)
         {
+
         }
 
         public DbSet<Post> Posts { get; set; }
-        public DbSet<User> Users {  get; set; }
-
+        public DbSet<Comment> Comments { get; set; }
     }
 }

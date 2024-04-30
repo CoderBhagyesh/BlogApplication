@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace BlogApplication.Models.Domain
 {
-    public class User : IdentityUser
+    public class User
     {
         [Key]
         public int UserId {  get; set; }

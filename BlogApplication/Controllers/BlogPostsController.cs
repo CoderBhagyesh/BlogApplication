@@ -2,6 +2,7 @@
 using BlogApplication.Models.Domain;
 using BlogApplication.Models.ViewModels;
 using BlogApplication.Repositories.Interfaces;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 
@@ -10,14 +11,15 @@ namespace BlogApplication.Controllers
     public class BlogPostsController : Controller
     {
         private readonly IBlogPostRepository blogPostRepository;
-
-        public BlogPostsController(IBlogPostRepository blogPostRepository)
+        private readonly UserManager<IdentityUser> _userManager; 
+        public BlogPostsController(IBlogPostRepository blogPostRepository, UserManager<IdentityUser> userManager)
         {
             this.blogPostRepository = blogPostRepository;
+            this._userManager = userManager;
         }
 
         [HttpGet]
-        public async Task<IActionResult> Add()
+        public IActionResult Add()
         {
             return View();
         }
@@ -29,16 +31,16 @@ namespace BlogApplication.Controllers
             {
                 Title = addBlogPostRequest.Title,
                 Content = addBlogPostRequest.Content,
-                ShortDescription = addBlogPostRequest.ShortDescription,
                 FeaturedImageUrl = addBlogPostRequest.FeaturedImageUrl,
-                CreatedAt = addBlogPostRequest.CreatedAt,
-                UpdatedAt = addBlogPostRequest.UpdatedAt,
+                CreatedAt = DateTime.Now,
+                UpdatedAt = DateTime.Now,
                 Author = addBlogPostRequest.Author,
             };
 
+
             await blogPostRepository.AddAsync(blogPost);
 
-            // Show succes message
+            // Show success message
             return RedirectToAction("List");
         }
 
@@ -62,12 +64,10 @@ namespace BlogApplication.Controllers
                     PostId = blogPost.PostId,
                     Title = blogPost.Title,
                     Content = blogPost.Content,
-                    ShortDescription = blogPost.ShortDescription,
                     FeaturedImageUrl = blogPost.FeaturedImageUrl,
                     CreatedAt = blogPost.CreatedAt,
                     UpdatedAt = blogPost.UpdatedAt,
-                    Author = blogPost.Author,
-                    UserId = blogPost.UserId
+                    Author = blogPost.Author
                 };
 
                 return View(model);
@@ -87,11 +87,9 @@ namespace BlogApplication.Controllers
                 Title = editBlogPostRequest.Title,
                 Content = editBlogPostRequest.Content,
                 Author = editBlogPostRequest.Author,
-                ShortDescription = editBlogPostRequest.ShortDescription,
                 FeaturedImageUrl = editBlogPostRequest.FeaturedImageUrl,
                 CreatedAt = editBlogPostRequest.CreatedAt,
-                UpdatedAt = editBlogPostRequest.UpdatedAt
-
+                UpdatedAt = DateTime.Now
             };
 
             // Submit information to repository to update

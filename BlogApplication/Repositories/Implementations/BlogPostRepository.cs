@@ -1,6 +1,7 @@
 ﻿using BlogApplication.Data;
 using BlogApplication.Models.Domain;
 using BlogApplication.Repositories.Interfaces;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 
 namespace BlogApplication.Repositories.Implementations
@@ -46,7 +47,7 @@ namespace BlogApplication.Repositories.Implementations
 
         public async Task<Post?> UpdateAsync(Post post)
         {
-            var existingBlog = await blogsDbContext.Posts.Include(x=> x.UserId)
+            var existingBlog = await blogsDbContext.Posts
                 .FirstOrDefaultAsync(x => x.PostId == post.PostId);
 
             if (existingBlog != null)
@@ -54,7 +55,6 @@ namespace BlogApplication.Repositories.Implementations
                 existingBlog.PostId = post.PostId;
                 existingBlog.Title = post.Title;
                 existingBlog.Content = post.Content;
-                existingBlog.ShortDescription = post.ShortDescription;
                 existingBlog.Author = post.Author;
                 existingBlog.FeaturedImageUrl = post.FeaturedImageUrl;
                 existingBlog.CreatedAt = post.CreatedAt;

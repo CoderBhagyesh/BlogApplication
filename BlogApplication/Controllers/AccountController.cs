@@ -7,11 +7,11 @@ namespace BlogApplication.Controllers
 {
     public class AccountController : Controller
     {
-        private readonly UserManager<User> userManager;
-        private readonly SignInManager<User> signInManager;
+        private readonly UserManager<IdentityUser> userManager;
+        private readonly SignInManager<IdentityUser> signInManager;
 
-        public AccountController(UserManager<User> userManager,
-            SignInManager<User> signInManager)
+        public AccountController(UserManager<IdentityUser> userManager,
+            SignInManager<IdentityUser> signInManager)
         {
             this.userManager = userManager;
             this.signInManager = signInManager;
@@ -27,7 +27,7 @@ namespace BlogApplication.Controllers
         {
             if (ModelState.IsValid)
             {
-                var identityUser = new User
+                var identityUser = new IdentityUser
                 {
                     UserName = registerViewModel.Username,
                     Email = registerViewModel.Email
@@ -43,7 +43,7 @@ namespace BlogApplication.Controllers
                     if (roleIdentityResult.Succeeded)
                     {
                         // Show success notification
-                        return RedirectToAction("Register");
+                        return RedirectToAction("Login");
                     }
                 }
             }
