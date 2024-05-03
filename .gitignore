@@ -365,3 +365,4 @@ FodyWeavers.xsd
 .vs
 BlogApplication/bin/Debug/net8.0
 BlogApplication/obj.vs
+BlogApplication/appsettings.json
